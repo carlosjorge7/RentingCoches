@@ -1,0 +1,10 @@
+use rentingcoches;
+delimiter $$
+create procedure p_aumentar_precio_coche(in p_matricula varchar(30), in p_precio float)
+ begin
+   update
+    coches c
+    set c.precio = c.precio + p_precio
+    where c.matricula = p_matricula;
+end$$
+delimiter ; 	

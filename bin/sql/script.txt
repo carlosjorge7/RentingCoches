@@ -1,0 +1,46 @@
+-- create database rentingcoches;
+-- create user 'root'@'localhost' IDENTIFIED BY '';
+use rentingCoches;
+create table coches(
+	idCoche int(11) AUTO_INCREMENT,
+	matricula varchar(25),
+	marca varchar(25),
+	color varchar(25),
+	precio float,
+	primary key(idCoche)
+);
+create table clientes(
+	idCliente int(11) AUTO_INCREMENT,
+	dni varchar(25),
+	nombre varchar(25),
+	edad int(11),
+	primary key(idCliente)
+);
+create table registros(
+	idRegistro int(11) AUTO_INCREMENT,
+	fecha_inicio date,
+	fecha_fin date,
+	idCoche int(11),
+	idCliente int(11),
+	primary key(idRegistro),
+	foreign key (idCoche) references coches(idCoche) on delete restrict on update cascade,
+  	foreign key (idCliente) references clientes(idCliente) on delete restrict on update cascade
+);
+insert into coches(matricula, marca, color, precio) values ("1236KGH", "BMW", "verde", 1900),
+													("3654KKK", "Audi", "gris", 1900),
+													("3333RKLG", "Volvo", "negro", 1876.66),
+													("0088IIK", "Toyota", "morado", 3001.99),
+													("6784RTH", "Opel", "champan", 1600.03),
+													("0578IXM", "Peugeout", "azul", 1999.99),
+													("3698BZZ", "Tesla", "blanco", 4000),
+													("0707UUU", "Seat", "rojo", 3000);
+insert into clientes(dni, nombre, edad) values ("47581485M", "Carlos", 23),
+												("58369750K", "Pepe", 58),
+												("12345678I", "Maria", 33),
+												("98765432G", "Lucia", 26),
+												("10203040J", "Daniel", 40),
+												("00660066P", "Marta", 39);
+insert into registros(fecha_inicio, fecha_fin, idCoche, idCliente) values (now(), '2021-03-17', 2, 1),
+																			(now(), '2021-04-17', 3, 2),
+																			(now(), '2021-03-20', 5, 3);
+																													

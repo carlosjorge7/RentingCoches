@@ -1,0 +1,14 @@
+
+Flujo del programa:
+
+	1 - Encendemos el xammpp y activamos el servidor mysql y apache. Una vez encendido, vamos a un navegador y ponemos http://localhost/phpmyadmin/ 
+	2 - Una vez en el cliente de mysql, nos dirigimos a la opcion SQL del menu y creamos la base de datos con el comando: create database rentingcoches;
+	3 - create user 'root'@'localhost' IDENTIFIED BY ''; El sistema nos otorga el usuario root y contraseña vacia.
+	4 - Ejecutar el archivo Main.java de nuestro proyecto y le damos a la opcion de crear modelo.
+	5 - Elegir una serie de opciones del menu. Ejecutamos el procedure en la opcion SQL.
+
+
+Anotaciones: 
+
+	Para otorgar permisos para borrar la base de datos: ir a C:\xampp1\phpMyAdmin\libraries y el fichero config.default.php.
+	buscar AllowUserDropDatabase y ponerlo a true
